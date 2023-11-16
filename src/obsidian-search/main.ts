@@ -1,4 +1,5 @@
 import {App, SuggestModal, Plugin, TFile} from 'obsidian';
+import escapeStringRegexp from "escape-string-regexp";
 
 
 export default class ObsidianSearch extends Plugin {
@@ -33,16 +34,15 @@ class SearchModal extends SuggestModal<TFile> {
 
 	async getSuggestions(query: string): Promise<TFile[]> {
 		const keywords = query.trim().split(/\s+/g);
+		const pattern = RegExp(keywords.map(escapeStringRegexp).join("|"), 'g');
+
 		const files = this.app.vault.getMarkdownFiles();
 		const results = await Promise.all(files.map(async (file) => {
-			let score = 0;
 			// we add basename as well path for a higher score if keyword is in basename and path
 			const content = (
 				`${file.basename}\n${file.path}\n${await this.app.vault.cachedRead(file)}`
 			).toLowerCase();
-			for (let keyword of keywords) {
-				score += content.split(keyword).length-1;
-			}
+			let score = [...content.matchAll(pattern)].length;
 			return { file, score };
 		}));
 		return results
@@ -54,7 +54,8 @@ class SearchModal extends SuggestModal<TFile> {
 	async renderSuggestion(file: TFile, el: HTMLElement): Promise<any> {
 		el.createEl('div', { text: file.path });
 		const content = await this.app.vault.cachedRead(file);
-		const text = content.slice(0, nthIndexOfInString(content, 3, '\n'));
+		const nth = nthIndexOfInString(content, 3, '\n');
+		const text = content.slice(0, nth);
 		el.createEl('small', { text: text }).setCssStyles({ opacity: "0.5" });
 	}
 
@@ -69,8 +70,8 @@ class SearchModal extends SuggestModal<TFile> {
 function nthIndexOfInString(text: string, n: number, searchString: string): number {
 	let index = -1;
 	for (let i = 0; i < n; i++) {
-		index = text.indexOf(searchString, index);
-		if (index < 0) break;
+		index = text.indexOf(searchString, index + 1);
+		if (index < 0) return text.length;
 	}
 	return index;
 }
