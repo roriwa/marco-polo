@@ -1,3 +1,4 @@
 /.idea/
-vault/.obsidian/plugins/obsidian-search/*
-!vault/.obsidian/plugins/obsidian-search/.hotreload
+/vault/.obsidian/plugins/obsidian-search/*
+!/vault/.obsidian/plugins/obsidian-search/.hotreload
+/vault/private/
