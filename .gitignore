@@ -1,4 +1,5 @@
 /.idea/
+dist/
 /vault/.obsidian/plugins/obsidian-search/*
 !/vault/.obsidian/plugins/obsidian-search/.hotreload
 /vault/private/
