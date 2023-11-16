@@ -1,5 +1,5 @@
-# obsidian-search
-plugin for obsidian to search for stuff
+# marco-polo
+plugin for obsidian to search for stuff and more
 
 ![example recording](README.assets/example-recording.gif)
 

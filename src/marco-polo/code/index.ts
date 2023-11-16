@@ -2,7 +2,7 @@ import { Plugin } from 'obsidian';
 import * as search from "./search";
 
 
-export default class ObsidianSearch extends Plugin {
+export default class MarcoPolo extends Plugin {
 	onload() {
 		search.onload(this);
 	}

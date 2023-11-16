@@ -1,9 +1,9 @@
 {
-	"id": "obsidian-search",
-	"name": "Obsidian Search",
+	"id": "marco-polo",
+	"name": "Marco Polo",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Search in your vaults",
+	"description": "Marco Polo plugin",
 	"author": "PlayerG9",
 	"authorUrl": "https://github.com/PlayerG9",
 	"isDesktopOnly": false

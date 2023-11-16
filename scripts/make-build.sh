@@ -4,8 +4,8 @@ set -e
 ROOT="$(realpath "$(dirname "$(realpath "$0")")/../")"
 cd "$ROOT"
 
-SRC=src/obsidian-search/
-DST=dist/obsidian-search/
+SRC=src/marco-polo/
+DST=dist/marco-polo/
 
 cd "$SRC"
 npm run build
@@ -25,4 +25,4 @@ cd dist/
 if [ -f obsidian-vault.tgz ]; then
   rm obsidian-vault.tgz
 fi
-tar -czf obsidian-vault.tgz obsidian-search/
+tar -czf marco-polo.tgz marco-polo/

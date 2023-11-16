@@ -4,5 +4,5 @@ set -e
 ROOT="$(realpath "$(dirname "$(realpath "$0")")/../")"
 cd "$ROOT"
 
-cd src/obsidian-search/
+cd src/marco-polo/
 npm run dev

@@ -12,4 +12,4 @@ setup:
 
 clean:
 	@rm -rf dist/
-	@rm src/obsidian-search/main.js
+	@rm src/marco-polo/main.js

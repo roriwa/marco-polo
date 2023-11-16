@@ -4,9 +4,9 @@ set -e
 ROOT="$(realpath "$(dirname "$(realpath "$0")")/../")"
 cd "$ROOT"
 
-SRC=src/obsidian-search
+SRC=src/marco-polo/
 VLT=vault/
-PLUGIN="$VLT"/.obsidian/plugins/obsidian-search
+PLUGIN="$VLT"/.obsidian/plugins/marco-polo/
 
 
 cd "$ROOT/$SRC"

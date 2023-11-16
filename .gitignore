@@ -1,5 +1,5 @@
 /.idea/
 dist/
-/vault/.obsidian/plugins/obsidian-search/*
-!/vault/.obsidian/plugins/obsidian-search/.hotreload
+/vault/.obsidian/plugins/marco-polo/*
+!/vault/.obsidian/plugins/marco-polo/.hotreload
 /vault/private/
