@@ -31,9 +31,24 @@ class SearchModal extends SuggestModal<TFile> {
 		super(app);
 	}
 
-	getSuggestions(query: string): TFile[] | Promise<TFile[]> {
-		const files = this.app.vault.getMarkdownFiles()
-		return files.filter(file => file.basename.toLowerCase().contains(query));
+	async getSuggestions(query: string): Promise<TFile[]> {
+		const keywords = query.trim().split(/\s+/g);
+		const files = this.app.vault.getMarkdownFiles();
+		const results = await Promise.all(files.map(async (file) => {
+			let score = 0;
+			// we add basename as well path for a higher score if keyword is in basename and path
+			const content = (
+				`${file.basename}\n${file.path}\n${await this.app.vault.cachedRead(file)}`
+			).toLowerCase();
+			for (let keyword of keywords) {
+				score += content.split(keyword).length-1;
+			}
+			return { file, score };
+		}));
+		return results
+			.filter(result => !!result.score)
+			.sort((a, b) => b.score - a.score)
+			.map(result => result.file);
 	}
 
 	async renderSuggestion(file: TFile, el: HTMLElement): Promise<any> {
