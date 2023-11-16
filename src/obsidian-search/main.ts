@@ -1,4 +1,4 @@
-import { App, Modal, Plugin } from 'obsidian';
+import {App, SuggestModal, Plugin, TFile} from 'obsidian';
 
 
 export default class ObsidianSearch extends Plugin {
@@ -15,10 +15,7 @@ export default class ObsidianSearch extends Plugin {
 				new SearchModal(this.app).open();
 			},
 			hotkeys: [
-				{
-					key: "f",
-					modifiers: ["Ctrl", "Shift"],
-				}
+				{ modifiers: ["Ctrl", "Shift"], key: "f" }
 			],
 		});
 	}
@@ -28,18 +25,37 @@ export default class ObsidianSearch extends Plugin {
 	}
 }
 
-class SearchModal extends Modal {
+
+class SearchModal extends SuggestModal<TFile> {
 	constructor(app: App) {
 		super(app);
 	}
 
-	onOpen() {
-		const { contentEl } = this;
-		contentEl.setText('Woah!!!');
+	getSuggestions(query: string): TFile[] | Promise<TFile[]> {
+		const files = this.app.vault.getMarkdownFiles()
+		return files.filter(file => file.basename.toLowerCase().contains(query));
 	}
 
-	onClose() {
-		const { contentEl } = this;
-		contentEl.empty();
+	async renderSuggestion(file: TFile, el: HTMLElement): Promise<any> {
+		el.createEl('div', { text: file.path });
+		const content = await this.app.vault.cachedRead(file);
+		const text = content.slice(0, nthIndexOfInString(content, 3, '\n'));
+		el.createEl('small', { text: text }).setCssStyles({ opacity: "0.5" });
 	}
+
+	async onChooseSuggestion(file: TFile): Promise<any> {
+		let leaf = this.app.workspace.getMostRecentLeaf();
+		if (leaf === null) leaf = this.app.workspace.getLeaf();
+		await leaf.openFile(file);
+	}
+}
+
+
+function nthIndexOfInString(text: string, n: number, searchString: string): number {
+	let index = -1;
+	for (let i = 0; i < n; i++) {
+		index = text.indexOf(searchString, index);
+		if (index < 0) break;
+	}
+	return index;
 }
