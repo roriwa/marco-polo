@@ -6,14 +6,14 @@ import { nthIndexOfInString } from "../util";
 export default class SearchModal extends SuggestModal<TFile> {
 	async getSuggestions(query: string): Promise<TFile[]> {
 		const keywords = query.trim().split(/\s+/g);
-		const pattern = RegExp(keywords.map(escapeStringRegexp).join("|"), 'g');
+		const pattern = RegExp(keywords.map(escapeStringRegexp).join("|"), 'gi');
 
 		const files = this.app.vault.getMarkdownFiles();
 		const results = await Promise.all(files.map(async (file) => {
 			// we add basename as well path for a higher score if keyword is in basename and path
 			const content = (
 				`${file.basename}\n${file.path}\n${await this.app.vault.cachedRead(file)}`
-			).toLowerCase();
+			);
 			let score = [...content.matchAll(pattern)].length;
 			return { file, score };
 		}));
