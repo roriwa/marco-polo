@@ -4,6 +4,8 @@ import { nthIndexOfInString } from "../util";
 
 
 export default class SearchModal extends SuggestModal<TFile> {
+	// joins the files basename, the filepath and the content together and
+	// then filters and sorts based on the number of occurrences
 	async getSuggestions(query: string): Promise<TFile[]> {
 		const keywords = query.trim().split(/\s+/g);
 		const pattern = RegExp(keywords.map(escapeStringRegexp).join("|"), 'gi');
@@ -18,11 +20,12 @@ export default class SearchModal extends SuggestModal<TFile> {
 			return { file, score };
 		}));
 		return results
-			.filter(result => !!result.score)
-			.sort((a, b) => b.score - a.score)
-			.map(result => result.file);
+			.filter(result => !!result.score)  // filters if any score
+			.sort((a, b) => b.score - a.score)  // sorts descending
+			.map(result => result.file);  // destruct the temporary result-object
 	}
 
+	// very simple rendering. could be improved
 	async renderSuggestion(file: TFile, el: HTMLElement): Promise<any> {
 		el.createEl('div', { text: file.path });
 		const content = await this.app.vault.cachedRead(file);

@@ -1,3 +1,4 @@
+// collection of utility function cause javascript is bad and missing too many basic things
 
 export function nthIndexOfInString(text: string, n: number, searchString: string): number {
 	/*

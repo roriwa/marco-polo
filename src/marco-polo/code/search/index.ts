@@ -3,6 +3,7 @@ import SearchModal from "./search_modal";
 
 
 export function onload(plugin: Plugin) {
+	// button on the left-most bar
 	plugin.addRibbonIcon('search', 'Search', () => {
 		new SearchModal(this.app).open();
 	});
@@ -15,6 +16,7 @@ export function onload(plugin: Plugin) {
 			new SearchModal(this.app).open();
 		},
 		hotkeys: [
+			// warning: overlaps with the core-plugin "search"
 			{ modifiers: ["Ctrl", "Shift"], key: "f" }
 		],
 	});

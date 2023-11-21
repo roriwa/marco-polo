@@ -10,6 +10,9 @@ make build
 # and see in the dist/ directory
 ```
 
+extract the archive or copy the resulting folder into the `.obsidian/plugins/` folder.
+Don't forget to turn on community-plugins and enable this one.
+
 ## How to develop
 
 ```bash
