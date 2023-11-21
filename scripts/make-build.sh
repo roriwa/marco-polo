@@ -26,3 +26,5 @@ if [ -f obsidian-vault.tgz ]; then
   rm obsidian-vault.tgz
 fi
 tar -czf marco-polo.tgz marco-polo/
+
+echo "Build is placed in dist/"
