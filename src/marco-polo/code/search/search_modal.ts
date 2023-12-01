@@ -8,7 +8,10 @@ export default class SearchModal extends SuggestModal<TFile> {
 	// then filters and sorts based on the number of occurrences
 	async getSuggestions(query: string): Promise<TFile[]> {
 		const keywords = query.trim().split(/\s+/g);
-		const pattern = RegExp(keywords.map(escapeStringRegexp).join("|"), 'gi');
+		// simpler version (just searches for the keywords | problems with things like "a" as it's occurs way too often)
+		//const pattern = RegExp(keywords.map(escapeStringRegexp).join("|"), 'gi');
+		// this is a more advanced version which checks for the whole word \b -> word-boundary => \bword\b -> " word."
+		const pattern = RegExp(keywords.map(escapeStringRegexp).map(word => `\\b${word}\\b`).join("|"), 'gi');
 
 		const files = this.app.vault.getMarkdownFiles();
 		const results = await Promise.all(files.map(async (file) => {
