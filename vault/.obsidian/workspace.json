@@ -4,14 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "5048e88397a7b35f",
+        "id": "42f8947e42a31bc7",
         "type": "tabs",
         "children": [
           {
-            "id": "53007649b19bcccc",
+            "id": "4fdf466f085f02bd",
             "type": "leaf",
             "state": {
               "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "f84bc81e4eb0a836",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d585d81cbec4c23c",
+            "type": "leaf",
+            "state": {
+              "type": "zdc-debug",
               "state": {}
             }
           }
@@ -130,17 +144,52 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-search:Sample Plugin": false,
-      "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "marco-polo:Search": false,
+      "marco-polo:Grab Quotes": false
     }
   },
-  "active": "53007649b19bcccc",
+  "active": "4fdf466f085f02bd",
   "lastOpenFiles": [
-    "Root/note1.md",
-    "Root"
+    "private/XAI/AnnontationsFROMPDF/shiDonStopPretraining2023.md",
+    "private/XAI/AnnontationsFROMPDF/bahdanauNeuralMachineTranslation2016.md",
+    "private/XAI/Definitions/Explainability/Measurement/Quote02.md",
+    "private/XAI/AnnontationsFROMPDF",
+    "private/Untitled",
+    "private/XAI/UI & UX/Quote04.md",
+    "private/XAI/Definitions/Transparency/Transparency.md",
+    "private/XAI/Definitions/Explainability/What it takes/Quote 3.md",
+    "private/XAI/Definitions/Explainability/What it takes/What it takes.md",
+    "private/XAI/Definitions/Explainability/What it takes/Quote 2.md",
+    "private/XAI/Definitions/Explainability/Terminology/Quote 4.md",
+    "private/XAI/Definitions/Explainability/What it takes/Quote 1.md",
+    "private/XAI/Definitions/Explainability/Terminology/Quote 3.md",
+    "private/XAI/Definitions/Explainability/Terminology/Terminology.md",
+    "private/XAI/Definitions/Explainability/Terminology/Quote 2.md",
+    "private/XAI/Definitions/Explainability/Terminology/Quote 1.md",
+    "private/XAI/Definitions/Explainability/Requirements/Quote01.md",
+    "private/XAI/Definitions/Explainability/Measurement/Quote01.md",
+    "private/XAI/Definitions/Explainability/Requirements/Requirements.md",
+    "private/XAI/Definitions/Explainability/Measurement/Measurement.md",
+    "private/XAI/Tools and Technologies/SHAP/SHAP.md",
+    "private/XAI/Tools and Technologies/MDNet/MDNet.md",
+    "private/XAI/Tools and Technologies/LIME/LIME.md",
+    "private/XAI/Definitions/Transparency/Quote 7.md",
+    "private/XAI/Definitions/Transparency/Quote 6.md",
+    "private/XAI/Definitions/Transparency/Quote 5.md",
+    "private/XAI/Definitions/Transparency/Quote 4.md",
+    "private/XAI/Definitions/Transparency/Quote 3.md",
+    "private/XAI/Definitions/Explainability/What it takes",
+    "private/XAI/Definitions/Explainability/Terminology",
+    "private/XAI/Definitions/Explainability/Requirements",
+    "private/XAI/Definitions/Explainability/Measurement",
+    "private/XAI/Tools and Technologies/SHAP",
+    "private/XAI/Tools and Technologies/MDNet",
+    "private/XAI/Tools and Technologies/LIME",
+    "private/XAI/Definitions/Transparency",
+    "private/Pasted image 20230925170157.png",
+    "private/Pasted image 20230925165606.png",
+    "private/Pasted image 20230925165548.png"
   ]
 }
