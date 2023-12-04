@@ -5,10 +5,19 @@ import GrabQuotes from "./grabquotes";
 
 export function onload(plugin: Plugin) {
 
-	plugin.addRibbonIcon('search', 'Grab Quotes', () => {
+	plugin.addRibbonIcon('import', 'Grab Quotes', () => {
 		new GrabQuotes().runGrab();
 		//console.log("Hello from Maro-Polo");
 	});
+
+
+	// // @ts-ignore
+	// // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+	// this.app.commands.executeCommandById("");
+
+	// console.log(this.app.internalPlugins.app.commands);
+	console.log(this.app.internalPlugins.app.commands.commands['marco-polo:open-search-modal']);
+	this.app.internalPlugins.app.commands.commands['marco-polo:open-search-modal'].callback();
 
 	// button on the left-most bar
 	//plugin.addRibbonIcon('search', 'Search', () => {

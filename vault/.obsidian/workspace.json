@@ -16,20 +16,6 @@
             }
           }
         ]
-      },
-      {
-        "id": "f84bc81e4eb0a836",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "d585d81cbec4c23c",
-            "type": "leaf",
-            "state": {
-              "type": "zdc-debug",
-              "state": {}
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -150,7 +136,7 @@
       "marco-polo:Grab Quotes": false
     }
   },
-  "active": "4fdf466f085f02bd",
+  "active": "03a3fce55562b7cf",
   "lastOpenFiles": [
     "private/XAI/AnnontationsFROMPDF/shiDonStopPretraining2023.md",
     "private/XAI/AnnontationsFROMPDF/bahdanauNeuralMachineTranslation2016.md",
