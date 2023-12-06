@@ -10,10 +10,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
+        node-version: latest
         cache: 'npm'
-    - name: make build
-      run: make build
+        cache-dependency-path: 'src/marco-polo/package-lock.json'
+    - run: rpm install
+    - run: make build
