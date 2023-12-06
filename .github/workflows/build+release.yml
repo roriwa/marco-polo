@@ -15,6 +15,7 @@ jobs:
       with:
         node-version: latest
         cache: 'npm'
-        cache-dependency-path: 'src/marco-polo/package-lock.json'
+        cache-dependency-path: "src/marco-polo/package-lock.json"
     - run: npm install
+      working-directory: "src/marco-polo/"
     - run: make build
