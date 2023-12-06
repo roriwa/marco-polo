@@ -20,11 +20,12 @@ jobs:
       working-directory: "src/marco-polo/"
     - run: make build
     - name: Release
-      uses: "marvinpinto/action-automatic-releases@latest"
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "latest"
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: Marco-Polo
+        draft: false
         prerelease: false
-        title: "Marco-Polo build"
-        files: |
-          dist/marco-polo.tgz
